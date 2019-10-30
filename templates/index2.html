@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>NOIN COUNTER</h1>
+        {% for r in results['participants'] %}
+            {% for key, value in r.items() %}
+            <p><b>Participant: </b> {{ key }} <b>Noins mined: </b> {{ value['noin_balance'] }}</p>
+            {% endfor %}
+        {% endfor %}
+
+        <br>
+
+        <button value="Refresh" onClick="window.location.reload();">Refresh</button>
+
+    </body>
+</html>

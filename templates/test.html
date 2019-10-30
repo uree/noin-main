@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating Real-Time Charts with Flask</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="" id="showme">
+                    test
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var source = new EventSource("{{ url_for('sse.stream') }}");
+        source.addEventListener('greeting', function(event) {
+            var data = JSON.parse(event.data);
+            console.log(data);
+            // do what you want with this data
+        }, false);
+        // const config = {
+        //     type: 'line',
+        //     data: {
+        //         labels: [],
+        //         datasets: [{
+        //             label: "Random Dataset",
+        //             backgroundColor: 'rgb(255, 99, 132)',
+        //             borderColor: 'rgb(255, 99, 132)',
+        //             data: [],
+        //             fill: false,
+        //         }],
+        //     },
+        //     options: {
+        //         responsive: true,
+        //         title: {
+        //             display: true,
+        //             text: 'Real time noining'
+        //         },
+        //         tooltips: {
+        //             mode: 'index',
+        //             intersect: false,
+        //         },
+        //         hover: {
+        //             mode: 'nearest',
+        //             intersect: true
+        //         },
+        //         scales: {
+        //             xAxes: [{
+        //                 display: true,
+        //                 scaleLabel: {
+        //                     display: true,
+        //                     labelString: 'Time'
+        //                 }
+        //             }],
+        //             yAxes: [{
+        //                 display: true,
+        //                 scaleLabel: {
+        //                     display: true,
+        //                     labelString: 'Value'
+        //                 }
+        //             }]
+        //         }
+        //     }
+        // };
+
+        // const context = document.getElementById('canvas').getContext('2d');
+
+        //const context = document.getElementById('showme');
+
+        // const lineChart = new Chart(context, config);
+
+        //const source = new EventSource("/chart-data");
+
+        // source.onmessage = function (event) {
+        //     const data = JSON.parse(event.data);
+        //     if (config.data.labels.length === 20) {
+        //         config.data.labels.shift();
+        //         config.data.datasets[0].data.shift();
+        //     }
+        //     config.data.labels.push(data.time);
+        //     config.data.datasets[0].data.push(data.value);
+        //     lineChart.update();
+        // }
+
+
+
+
+        // source.onmessage = function (event) {
+        //     const data = JSON.parse(event.data);
+        //     console.log(data);
+        //     $('#showme').append(JSON.stringify(data));
+        //     // $.each( data.participants[0], function( key, value ) {
+        //     //     console.log(key);
+        //     //     console.log(value.noin_balance);
+        //     // });
+        //
+        //     // var formattedData = JSON.stringify(data, null, '\t');
+        //     // $('#showme').text(formattedData);
+        //     // $.each( data, function( key, value ) {
+        //     //   console.log( key + ": " + value );
+        //     // });
+        //     // console.log(data);
+        //     // $("#showme").json(data);
+        // }
+    });
+</script>
+</body>
+</html>

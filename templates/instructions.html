@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Noin. A coin that says nein.</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+  <h1>Noin</h1>
+  <p>A coin that says <a href="/noin"><em>nein</em></a>.</p>
+
+  <p>---------------------------------</p>
+
+  <div class="row">
+
+    <div class="column">
+      <img src="{{ url_for('static', filename='img/arrow-right.png') }}" alt="right arrow" id="arrow-right">
+    </div>
+
+    <div class="column">
+
+      <h2>Set it up </h2>
+
+      <br>
+      <img src="{{ url_for('static', filename='img/arrow-down.png') }}" alt="right arrow" id="arrow-down">
+
+      <h2>Android:</h2>
+      <ol>
+        <li>Download PhonePI app</li>
+        <li>Enable PhonePI to run in the background (in: battery settings)</li>
+        <li>In PhonePI connect to noin server (IP: 192:168:0:116 Port: 5000)</li>
+        <li>Turn accelerometer on in PhonePI</li>
+        <li>Start "mining noin" (<em>noining</em>)</li>
+      </ol>
+
+
+
+      <h2>iPhone:</h2>
+      <ul class="no-bullets">
+        <li>None</li>
+<!--        <li>Download TouchOSC app</li>-->
+<!--        <li>Connect to noin server (IP: 192:168:0:116 Port: 7400)</li>-->
+<!--        <li>Turn accelerometer on in TouchOSC</li>-->
+<!--        <li>Start "mining noin" (<em>noining</em>)</li>-->
+      </ul>
+    </div>
+
+    <div class="column">
+      <img src="./img/or.png" alt="or" id="dont">
+<!--      <br>-->
+      <img src="./img/dont.png" alt="don't" id="no-image">
+    </div>
+
+  </div>
+
+</body>
+</html>

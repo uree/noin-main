@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Noin. A coin that says nein.</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+  <h1>Noin</h1>
+  <p>A coin that says <em>nein</em>.</p>
+
+  <p>---------------------------------</p>
+  <h2>Noin counter</h2>
+  {% for r in results['participants'] %}
+      {% for key, value in r.items() %}
+      <p><b>Participant: </b> {{ key }} <b>Noins mined: </b> {{ value['noin_balance'] }}</p>
+      {% endfor %}
+  {% endfor %}
+
+  <br>
+
+  <button value="Refresh" onClick="window.location.reload();">Refresh</button>
+
+  <p>---------------------------------</p>
+
+    <a href="/instructions">mining demo: set up</a>
+    <br>
+    <a href="/second">what is noin?</a>
+    <br>
+  <a href="/whitepaper">whitepaper</a>
+
+
+  <p>---------------------------------</p>
+
+<!--  <img src="./img/noin-noin.png" alt="NOIN ... NOIN!">-->
+
+</body>
+</html>
